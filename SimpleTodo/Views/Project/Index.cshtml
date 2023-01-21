@@ -1,0 +1,15 @@
+﻿@model SimpleTodo.Models.ProjectListViewmodel
+
+@{
+    ViewData["Title"] = "Grupy zadań";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Obecne listy zadań</h1>
+    <ul>
+        @foreach (var project in Model.Projects)
+        {
+            <li>@project.Name</li>
+        }
+    </ul>
+</div>
