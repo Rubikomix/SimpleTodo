@@ -1,7 +1,7 @@
 ﻿@model SimpleTodo.Models.ProjectViewModel
 
 @{
-    ViewData["Title"] = "Show";
+    ViewData["Title"] = "Szczegóły projektu";
 }
 
 <h1>@Model.Name</h1>
@@ -45,3 +45,6 @@
         </li>
     }
 </ul>
+<div>
+    <a asp-action="Index">Powrót do listy projektów</a>
+</div>
