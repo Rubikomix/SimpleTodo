@@ -6,10 +6,12 @@
 
 <div class="text-center">
     <h1 class="display-4">Obecne listy zadań</h1>
-    <ul>
+    <ul class="list-group">
         @foreach (var project in Model.Projects)
         {
-            <li>@Html.ActionLink(project.Name, "Details", new { id = project.ID })</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @Html.ActionLink(project.Name, "Details", new { id = project.ID })
+            </li>
         }
     </ul>
 </div>

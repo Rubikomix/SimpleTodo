@@ -30,7 +30,7 @@ namespace SimpleTodo.Controllers
             {
                 return NotFound();
             }
-            return View(task);
+            return View(task.ToViewModel());
         }
 
         public IActionResult Add(Project project)
