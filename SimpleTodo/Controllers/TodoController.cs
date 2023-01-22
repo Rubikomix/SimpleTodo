@@ -29,6 +29,13 @@ namespace SimpleTodo.Controllers
             return redirectToProject(todo.ProjectID);
         }
 
+        public IActionResult Remove(int id)
+        {
+            var todo = _todoManager.GetTodo(id);
+            _todoManager.DeleteTodo(id);
+            return redirectToProject(todo.ProjectID);
+        }
+
         private IActionResult redirectToProject(int projectId)
         {
             return RedirectToAction(nameof(ProjectController.Details), "Project", new { id = projectId });
