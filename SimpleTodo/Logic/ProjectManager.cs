@@ -44,5 +44,12 @@ namespace SimpleTodo.Logic
             _context.SaveChanges();
             return this;
         }
+
+        public IProjectManager UpdateProject(Project project)
+        {
+            _context.Projects.Update(project);
+            _context.SaveChanges();
+            return this;
+        }
     }
 }

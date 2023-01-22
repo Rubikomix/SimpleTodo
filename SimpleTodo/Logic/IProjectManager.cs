@@ -12,5 +12,6 @@ namespace SimpleTodo.Logic
         IList<Project> GetProjects();
         Project GetProject(int id);
         IProjectManager RemoveProject(int id);
+        IProjectManager UpdateProject(Project project);
     }
 }
