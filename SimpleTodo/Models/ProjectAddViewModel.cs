@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace SimpleTodo.Models
 {
-    public class Project
+    public class ProjectAddViewModel
     {
         [Required]
-        public int ID { get; set; }
+        [MaxLength(80)]
         public string Name { get; set; }
-        public ICollection<Todo> Todos { get; set; }
     }
 }

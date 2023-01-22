@@ -33,7 +33,14 @@ namespace SimpleTodo.Controllers
             return View(task.ToViewModel());
         }
 
-        public IActionResult Add(Project project)
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add([Bind("Name")]Project project)
         {
             _projectManager.AddProject(project);
             return RedirectToAction(nameof(Index));
