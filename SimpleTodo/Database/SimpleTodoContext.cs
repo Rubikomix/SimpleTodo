@@ -12,8 +12,8 @@ namespace SimpleTodo.Database
     public class SimpleTodoContext : DbContext
     {
         private IConfiguration _configuration;
-        public DbSet<Todo> Todos;
-        public DbSet<Project> Projects;
+        public DbSet<Todo> Todos { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         public SimpleTodoContext(IConfiguration configuration)
         {

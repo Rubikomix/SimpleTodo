@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SimpleTodo.Database;
+using SimpleTodo.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace SimpleTodo
         {
             services.AddControllersWithViews();
             services.AddDbContext<SimpleTodoContext>();
+            services.AddScoped<IProjectManager, ProjectManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

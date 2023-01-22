@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimpleTodo.Logic;
 using SimpleTodo.Models;
 using System;
 using System.Collections.Generic;
@@ -9,24 +10,22 @@ namespace SimpleTodo.Controllers
 {
     public class ProjectController : Controller
     {
-        static Random radom = new();
-        static List<Project> tasks = new()
+        private IProjectManager _projectManager;
+
+        public ProjectController(IProjectManager projectManager)
         {
-            new() { ID = 1, Name = "Projekt 1", Todos = new List<Todo>() {
-                new() {ID = 1, Text = "Zadanie1", Priority = 10, Done = false} }
-            },
-            new() { ID = 2, Name = "Projekt 2", Todos = new List<Todo>() },
-            new() { ID = 3, Name = "Projekt 3", Todos = new List<Todo>() },
-        };
+            _projectManager = projectManager;
+        }
 
         public IActionResult Index()
         {
-            return View(new ProjectListViewmodel() { Projects = tasks});
+            var projects = _projectManager.GetProjects();
+            return View(new ProjectListViewmodel() { Projects = projects});
         }
 
         public IActionResult Details(int id)
         {
-            var task = tasks.Where(t => t.ID == id).FirstOrDefault();
+            var task = _projectManager.GetProject(id);
             if (task is null)
             {
                 return NotFound();
@@ -36,7 +35,7 @@ namespace SimpleTodo.Controllers
 
         public IActionResult Add(Project project)
         {
-            tasks.Add(new() { ID = radom.Next(), Name = project.Name });
+            _projectManager.AddProject(project);
             return RedirectToAction(nameof(Index));
         }
     }
