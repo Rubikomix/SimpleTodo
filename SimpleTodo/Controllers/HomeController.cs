@@ -20,7 +20,7 @@ namespace SimpleTodo.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Project");
         }
 
         public IActionResult Privacy()
