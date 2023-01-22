@@ -16,7 +16,7 @@ namespace SimpleTodo.Models
         [Range(0, 10)]
         public int Priority { get; set; }
         [Required]
-        public bool Done { get; set; }
+        public bool Done { get; set; } = false;
         [Required]
         public int ProjectID { get; set; }
         public Project Project { get; set; }

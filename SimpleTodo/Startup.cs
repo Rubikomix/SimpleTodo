@@ -28,6 +28,7 @@ namespace SimpleTodo
             services.AddControllersWithViews();
             services.AddDbContext<SimpleTodoContext>();
             services.AddScoped<IProjectManager, ProjectManager>();
+            services.AddScoped<ITodoManager, TodoManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
