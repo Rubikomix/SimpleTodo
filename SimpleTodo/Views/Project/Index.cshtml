@@ -9,7 +9,7 @@
     <ul>
         @foreach (var project in Model.Projects)
         {
-            <li>@project.Name</li>
+            <li>@Html.ActionLink(project.Name, "Details", new { id = project.ID })</li>
         }
     </ul>
 </div>

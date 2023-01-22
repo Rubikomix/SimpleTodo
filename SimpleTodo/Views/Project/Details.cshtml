@@ -1,0 +1,13 @@
+﻿@model SimpleTodo.Models.Project
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h1>@Model.Name</h1>
+<ul>
+    @foreach (var todo in Model.Todos)
+    {
+        <li>@todo.Text done:@todo.Done</li>
+    }
+</ul>
