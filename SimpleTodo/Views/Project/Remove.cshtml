@@ -1,0 +1,20 @@
+﻿@model SimpleTodo.Models.ProjectViewModel
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h1>@Model.Name</h1>
+<dl class="row">
+    <dt class="col-sm-3">Nazwa:</dt>
+    <dd class="col-sm-9">@Model.Name</dd>
+    <dt class="col-sm-3">Niezrealizowanych Zadań</dt>
+    <dd class="col-sm-9">@Model.Todos.Where(t => !t.Done).Count()</dd>
+</dl>
+<form asp-action="RemoveConfirm">
+    <input type="hidden" asp-for="ID" />
+    <input type="submit" value="Potwierdzam usunięcie" class="btn btn-danger" />
+</form>
+<div>
+    <a asp-action="Index">Powrót do listy projektów</a>
+</div>

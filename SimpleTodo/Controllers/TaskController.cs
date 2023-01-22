@@ -45,5 +45,19 @@ namespace SimpleTodo.Controllers
             _projectManager.AddProject(project);
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult Remove(int id)
+        {
+            var project = _projectManager.GetProject(id);
+            return View(project.ToViewModel());
+        }
+
+        [HttpPost]
+        public IActionResult RemoveConfirm(int id)
+        {
+            _projectManager.RemoveProject(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
