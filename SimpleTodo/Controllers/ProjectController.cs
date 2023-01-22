@@ -43,7 +43,7 @@ namespace SimpleTodo.Controllers
         public IActionResult Add([Bind("Name")]Project project)
         {
             _projectManager.AddProject(project);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Details), new {id = project.ID});
         }
 
         [HttpGet]
