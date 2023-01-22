@@ -33,7 +33,10 @@ namespace SimpleTodo.Logic
 
         public ITodoManager DeleteTodo(int id)
         {
-            throw new NotImplementedException();
+            var todo = _context.Todos.Single(p => p.ID == id);
+            _context.Todos.Remove(todo);
+            _context.SaveChanges();
+            return this;
         }
 
         public Todo GetTodo(int id)

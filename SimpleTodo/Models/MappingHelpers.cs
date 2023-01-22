@@ -13,7 +13,11 @@ namespace SimpleTodo.Models
             {
                 ID = project.ID,
                 Name = project.Name,
-                Todos = project.Todos.Select(t => t.ToViewModel()).ToList(),
+                Todos = project.Todos
+                    .Select(t => t.ToViewModel())
+                    .OrderBy(t => t.Done)
+                    .ThenByDescending(t => t.Priority)
+                    .ToList(),
             };
         }
 
